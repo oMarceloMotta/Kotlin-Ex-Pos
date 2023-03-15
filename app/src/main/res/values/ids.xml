@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="title_login" type="id" />
+    <item name="register_google" type="id" />
+    <item name="layout_login" type="id" />
+    <item name="input_task" type="id" />
+    <item name="title_home" type="id" />
+    <item name="registrar_btn" type="id" />
+    <item name="toolbar_registro" type="id" />
+    <item name="et_email_registro" type="id" />
+    <item name="et_nome_registro" type="id" />
+    <item name="btn_sair" type="id" />
+    <item name="layout_list_task" type="id" />
+    <item name="logout" type="id" />
+</resources>

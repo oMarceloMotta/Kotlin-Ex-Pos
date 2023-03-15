@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Task</string>
+    <string name="btn_txt_login">Entrar</string>
+    <string name="title_login">Login</string>
+    <string name="btn_txt_register">Registrar-me!</string>
+    <string name="txt_welcome">Seja bem-vindo!</string>
+    <string name="btn_text_registrar">Registrar</string>
+
+    <string name="title_actionbar_registro">Registre-se</string>
+    <string name="btn_txt_sair">Sair</string>
+    <string name="txt_tarefa">Qual é sua tarefa ?</string>
+    <string name="delete">Deletar</string>
+    <string name="btn_add">Add</string>
+    <string name="et_email">Digite seu e-mail</string>
+    <string name="et_senha">Digite sua senha!</string>
+</resources>
