@@ -12,4 +12,17 @@
     <item name="btn_sair" type="id" />
     <item name="layout_list_task" type="id" />
     <item name="logout" type="id" />
+    <item name="temperatura" type="id" />
+    <item name="descricao" type="id" />
+    <item name="bairroCidade" type="id" />
+    <item name="imageView" type="id" />
+    <item name="statusPassword"  type="id" />
+    <item name="linear_registro" type="id"  />
+    <item name="txt_valida_email" type="id" />
+    <item name="sem_senha" type="id" />
+    <item name="email" type="id" />
+    <item name="et_email_recuperar_senha" type="id" />
+    <item name="senha_login" type="id" />
+    <item name="fragment_container" type="id" />
+
 </resources>

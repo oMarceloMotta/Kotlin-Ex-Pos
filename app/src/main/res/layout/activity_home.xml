@@ -4,68 +4,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".HomeActivity">
+    app:chainUseRtl="true"
+    tools:context=".HomeActivity"
+    tools:ignore="AutoFill">
+
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarLayout"
         android:layout_width="match_parent"
-        android:id="@+id/appBarLayoutHome"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        tools:ignore="MissingConstraints">
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
-            app:title="Home"
-            app:titleTextColor="@color/white"
-            android:layout_height="wrap_content">
-            <Button android:layout_height="wrap_content"
+            android:layout_height="wrap_content"
+            app:title="Home">
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_gravity="right"
-                android:text="@string/btn_txt_sair"
-                android:id="@+id/btn_sair"
-            />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="end">
+                <ImageView
+                    android:id="@+id/profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_baseline_account_circle_48"
+                    android:layout_gravity="right"
+                    android:layout_marginEnd="16dp"/>
+                <ImageView
+                    android:id="@+id/logout"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_logout_24"
+                    android:layout_gravity="right"
+                    android:layout_marginEnd="16dp"/>
+            </LinearLayout>
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
-    <EditText
-        android:id="@+id/et_task"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20sp"
-        android:layout_marginTop="60sp"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayoutHome"
-        android:layout_marginEnd="20sp"
-        android:layout_marginBottom="20sp"
-        android:hint="@string/txt_tarefa"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70sp"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayoutHome"
-        android:gravity="center"
-        android:id="@+id/layout_task"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/button_add"
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp">
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20sp"
-            android:text="@string/btn_add" />
-        <Button
-            android:id="@+id/btn_delete"
-            app:layout_constraintTop_toBottomOf="@+id/layout_task"
-            android:layout_width="wrap_content"
-            android:backgroundTint="@color/red"
-            android:layout_height="wrap_content"
-            android:text="@string/delete" />
-    </LinearLayout>
+            android:background="@color/white"
+            android:id="@+id/fragment_container"
+            android:layout_marginTop="30dp"/>
 
-    <ListView
-        android:id="@+id/list_view_tasks"
-        android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_container"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="24dp"/>
+
+        <ListView
+            android:id="@+id/listViewTasks"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textView"
+            android:scrollbars="vertical"/>
+    </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/layout_task"
-        android:choiceMode="multipleChoice"
-         />
+        android:id="@+id/fab_add_task"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/purple_500"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/add_48"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

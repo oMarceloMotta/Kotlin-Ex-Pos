@@ -3,7 +3,6 @@ package com.marcelomotta.task
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -22,12 +21,18 @@ class RegistroActivity : AppCompatActivity() {
         supportActionBar?.setTitle(R.string.title_actionbar_registro)
         auth = Firebase.auth
 
-        val btnRegistrar = findViewById<Button>(R.id.registrar_btn)
-        btnRegistrar.setOnClickListener(onClickRegisterUser())
         val actionbar = supportActionBar
         if (actionbar != null) {
             actionbar.setDisplayHomeAsUpEnabled(true)
         }
+
+        val btnRegistrar = supportFragmentManager.findFragmentById(R.id.registrar_btn) as ButtonFragment
+        btnRegistrar.setOnConfirmClickListener(object : ButtonFragment.OnConfirmClickListener {
+            override fun onConfirmClicked(activityType: String) {
+                onClickRegisterUser()
+            }
+        })
+
     }
     override fun onSupportNavigateUp(): Boolean {
         onBackPressedDispatcher.onBackPressed()

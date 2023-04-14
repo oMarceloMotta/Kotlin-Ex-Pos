@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Task</string>
+    <string name="btn_txt_login">Enter</string>
+    <string name="title_login">Login</string>
+    <string name="btn_txt_register">Register!</string>
+    <string name="txt_welcome">Welcome!</string>
+    <string name="btn_text_registrar">Register</string>
+    <string name="title_actionbar_registro">Register</string>
+    <string name="btn_txt_sair">Logout</string>
+    <string name="txt_tarefa">What`s is your task ?</string>
+    <string name="delete">Delete</string>
+    <string name="btn_add">Add</string>
+    <string name="et_email">Type your email</string>
+    <string name="et_senha">Type your password!</string>
+    <string name="et_recuperar_senha">Recover password</string>
+    <string name="invalid">E-mail invalid</string>
+    <string name="confimar">Confirm</string>
+    <string name="senha_muito_fraca">Password is very easy</string>
+    <string name="senha_fraca">Password is easy</string>
+    <string name="senha_media">Password is more less</string>
+    <string name="senha_forte">Password is strong</string>
+    <string name="senha_muito_forte">Password is very strong</string>
+    <string name="title_activity_profile">Perfil</string>
+    <string name="sem_senha"></string>
+    <string name="recover_password">Recover password</string>
+    <string name="task_title_field">Descrição da tarefa</string>
+    <string name="task_description_field">Descrição da tarefa</string>
+    <string name="btn_select_date">Selecionar Data</string>
+    <string name="btn_select_hour">Selecionar hora</string>
+    <string name="save_task">Salvar tarefa</string>
+
+</resources>

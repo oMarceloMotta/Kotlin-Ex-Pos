@@ -14,36 +14,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/linear_registro"
+
         android:orientation="vertical">
 
-
-        <EditText
-            android:hint="Digite seu e-mail"
-            android:inputType="textEmailAddress"
+        <fragment
             android:id="@+id/et_email_registro"
-            android:layout_marginRight="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_height="50sp"
+            android:name="com.marcelomotta.task.EmailInputFragment"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+
             />
-        <EditText
-            android:hint="@string/et_senha"
-            android:inputType="textPassword"
+        <fragment
             android:id="@+id/et_senha_registro"
-            android:layout_height="50sp"
-            android:layout_marginLeft="16sp"
-            android:layout_marginRight="16sp"
+            android:name="com.marcelomotta.task.SenhaFragment"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="@string/et_senha"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            />
+        <fragment
+            android:id="@+id/registrar_btn"
+            android:name="com.marcelomotta.task.ButtonFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_text_registrar"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/linear_registro"
+            app:layout_constraintStart_toStartOf="@+id/linear_registro"
+            app:layout_constraintTop_toBottomOf="@+id/linear_registro"
             />
     </LinearLayout>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:id="@+id/registrar_btn"
-        android:text="@string/btn_text_registrar"
-        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
