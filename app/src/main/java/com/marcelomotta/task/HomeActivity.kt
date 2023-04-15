@@ -1,6 +1,5 @@
 package com.marcelomotta.task
 
-
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +7,6 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -18,6 +16,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.marcelomotta.task.R.*
 
 class HomeActivity  : AppCompatActivity() {
     lateinit var mGoogleSignClient: GoogleSignInClient;
@@ -28,18 +27,18 @@ class HomeActivity  : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(layout.activity_home)
 
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, WeatherFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(id.fragment_container, WeatherFragment()).commit()
 
         supportActionBar?.hide()
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listItems)
-        val listView = findViewById<android.widget.ListView>(R.id.listViewTasks)
+        val listView = findViewById<android.widget.ListView>(id.listViewTasks)
         listView.adapter = adapter
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestIdToken(getString(string.default_web_client_id))
             .requestEmail()
             .build();
         mGoogleSignClient = GoogleSignIn.getClient(this, gso);
@@ -51,7 +50,7 @@ class HomeActivity  : AppCompatActivity() {
             startActivity(intent);
         }
 
-        findViewById<View>(R.id.logout).setOnClickListener{
+        findViewById<View>(id.logout).setOnClickListener{
             firebaseAuth.signOut();
             mGoogleSignClient.signOut();
 
@@ -60,13 +59,13 @@ class HomeActivity  : AppCompatActivity() {
             finish()
         }
 
-        findViewById<View>(R.id.profile).setOnClickListener{
+        findViewById<View>(id.profile).setOnClickListener{
             val activity = Intent(this, ProfileActivity::class.java);
             startActivity(activity)
             finish()
         }
 
-        findViewById<View>(R.id.fab_add_task).setOnClickListener{
+        findViewById<View>(id.fab_add_task).setOnClickListener{
             val activity = Intent(this, TaskActivity::class.java);
             startActivity(activity)
             finish()

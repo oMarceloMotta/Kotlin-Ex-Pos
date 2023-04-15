@@ -2,9 +2,13 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+    }
     lintOptions {
         checkReleaseBuilds false
     }
@@ -42,7 +46,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
+
 
 dependencies {
     implementation 'com.google.code.gson:gson:2.8.7'
@@ -52,6 +60,9 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
     implementation 'com.google.android.gms:play-services-auth:20.4.1'
+    implementation 'androidx.databinding:databinding-runtime:7.1.2'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -64,4 +75,7 @@ dependencies {
     implementation 'com.github.pwittchen:weathericonview:1.1.0'
     implementation 'com.google.firebase:firebase-analytics:17.5.0'
     implementation 'com.google.firebase:firebase-analytics-ktx:20.0.2'
+    implementation 'com.google.firebase:firebase-appdistribution-gradle:2.0.0'
+    implementation 'com.google.firebase:firebase-analytics-ktx:20.0.1'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:17.3.1'
 }

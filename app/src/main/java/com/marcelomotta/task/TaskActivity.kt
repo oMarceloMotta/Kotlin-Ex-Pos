@@ -1,13 +1,21 @@
 package com.marcelomotta.task
 
-import android.app.*
+import android.app.AlarmManager
+import android.app.DatePickerDialog
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.app.TimePickerDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -15,7 +23,9 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.marcelomotta.task.databinding.ActivityTaskBinding
-import java.util.*
+import java.util.Calendar
+import java.util.HashMap
+
 
 class TaskActivity : AppCompatActivity() {
     val uid = FirebaseAuth.getInstance().currentUser?.uid
@@ -26,6 +36,7 @@ class TaskActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTaskBinding;
     private lateinit var firebaseAnalytics: FirebaseAnalytics;
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTaskBinding.inflate(layoutInflater)
@@ -62,13 +73,17 @@ class TaskActivity : AppCompatActivity() {
             timePickerDialog.show()
         }
 
-        findViewById<Button>(R.id.btn_save_task).setOnClickListener{
-            createUpdateTask()
-        }
+        val btnSave = supportFragmentManager.findFragmentById(R.id.btn_save_task) as ButtonFragment
+        btnSave.setOnConfirmClickListener(object : ButtonFragment.OnConfirmClickListener {
+            override fun onConfirmClicked(activityType: String) {
+                createUpdateTask()
+            }
+        })
 
         createNotificationChannel()
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun createNotificationChannel(){
         val name = "Notification Channel INFNET"
         val descriptionText = "Channel for INFNET notifications"
@@ -115,7 +130,7 @@ class TaskActivity : AppCompatActivity() {
 
         val pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val calendar = Calendar.getInstance()
 //        calendar.add(Calendar.MINUTE, 1)
         val data_dia = data.substring(0, 2).toInt()
@@ -185,7 +200,7 @@ class TaskActivity : AppCompatActivity() {
 
             Toast.makeText(this, "Tarefa criada com sucesso!", Toast.LENGTH_SHORT).show()
 
-            Intent(this, MainActivity::class.java).also {
+            Intent(this, HomeActivity::class.java).also {
                 startActivity(it)
             }
         }

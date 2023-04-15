@@ -36,11 +36,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Task"
         tools:targetApi="32">
-        <receiver android:name="NotificationReceiver"/>
-
         <activity
             android:name=".TaskActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/title_activity_task"
+            android:theme="@style/Theme.Task" />
+
+        <receiver android:name=".NotificationReceiver" />
+
         <activity
             android:name=".RecuperarSenhaActivity"
             android:exported="false" />

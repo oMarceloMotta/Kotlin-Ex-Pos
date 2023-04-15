@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:backgroundTint="@color/purple_500"
             android:layout_height="wrap_content"
-            android:hint="@string/title_login"
+            android:hint="@string/task_title_field"
             android:layout_marginTop="50dp"
             android:padding="10dp"
             android:layout_marginHorizontal="20dp"
@@ -98,11 +98,12 @@
             android:text="@string/btn_select_hour"
             />
     </LinearLayout>
-    <Button
+    <fragment
+        android:id="@+id/btn_save_task"
+        android:name="com.marcelomotta.task.ButtonFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/save_task"
-        android:id="@+id/btn_save_task"
         android:layout_marginHorizontal="20dp"
         app:layout_constraintEnd_toEndOf="@+id/horaArea"
         app:layout_constraintStart_toStartOf="@+id/horaArea"
